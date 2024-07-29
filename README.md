@@ -1,6 +1,8 @@
 # BLACKSCAN
 Teraform to run pentest images in AWS
 
+Please refer to AWS policies https://aws.amazon.com/security/penetration-testing/
+
 1. modify variables.tf
 2. terraform init
 3. terraform apply
