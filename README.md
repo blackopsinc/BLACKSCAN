@@ -13,3 +13,9 @@ Contains the following
 - wfuzz (quick and dirty appsec stability test)
 - trufflehog (useful for passive scanning)
 - bearer (useful for passive scanning)
+
+Security Automation
+
+- Build use case automation (eg. Credential(Trufflehog), Bruteforce(wfuzz), Network(Nmap), Application(Bearer), etc.)
+- Build to fire and forget use cases (scale and log data)
+- Build reporting to identify "real" issues to Slack/JIRA, etc.
