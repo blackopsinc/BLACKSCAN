@@ -1,4 +1,5 @@
 #!/bin/sh
 
 apt-get update && apt-get -y upgrade && apt-get -y install git wfuzz
-git clone https://github.com/danielmiessler/SecLists.git /security/
+mkdir /security/
+git clone https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/subdomains-top1million-110000.txt /security/
