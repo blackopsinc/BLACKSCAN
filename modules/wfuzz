@@ -1,3 +1,4 @@
 #!/bin/sh
 
-apt-get update && apt-get -y upgrade && apt-get -y install wfuzz
+apt-get update && apt-get -y upgrade && apt-get -y install git wfuzz
+git clone https://github.com/danielmiessler/SecLists.git /security/
