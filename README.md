@@ -12,7 +12,7 @@ Please refer to AWS policies https://aws.amazon.com/security/penetration-testing
 Pentesting Module
 
 - nmap (use with caution) ```nmap -sC domain.com```
-- wfuzz (quick and dirty) - Example ```wfuzz -c -Z -w subdomains.txt --sc 200 https://FUZZ.domain.com```
+- wfuzz (quick and dirty subdomain scanner) - Example ```wfuzz -c -Z -w /security/wfuzz/subdomains.txt --sc 200 https://FUZZ.domain.com```
 - trufflehog (useful for passive credential scanning) - Example ```trufflehog git https://github.com/blackopsinc/BLACKSCAN```
 - bearer (useful for passive vulnerability scanning) - Example ```bearer scan <source>```
 
