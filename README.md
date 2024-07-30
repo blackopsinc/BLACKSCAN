@@ -7,9 +7,9 @@ Please refer to AWS policies https://aws.amazon.com/security/penetration-testing
 2. terraform init
 3. terraform apply
 4. aws ecs list-tasks --cluster blackscan
-5. aws ecs execute-command --cluster blackscan --task <task_id_from_above> --container blackscan --interactive --command "/bin/bash"
+5. aws ecs execute-command --cluster blackscan --task <task_id_from_above> --container blackscan --interactive --command "nmap -sC domain.com"
 
-Contains the following
+Pentesting Module
 
 - nmap (use with caution) ```nmap -sC domain.com```
 - wfuzz (quick and dirty) - Example ```wfuzz -c -Z -w subdomains.txt --sc 200 https://FUZZ.domain.com```
