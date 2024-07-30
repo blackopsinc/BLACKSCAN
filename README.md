@@ -12,7 +12,7 @@ Please refer to AWS policies https://aws.amazon.com/security/penetration-testing
 Contains the following
 
 - nmap (use with caution) 
-- wfuzz (quick and dirty appsec stability test)
+- wfuzz (quick and dirty appsec stability test) - Example ```wfuzz -c -Z -w subdomains.txt --sc 200 https://FUZZ.domain.com```
 - trufflehog (useful for passive scanning)
 - bearer (useful for passive scanning)
 
