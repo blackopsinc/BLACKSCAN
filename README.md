@@ -9,11 +9,12 @@ Please refer to AWS policies https://aws.amazon.com/security/penetration-testing
 4. aws ecs list-tasks --cluster blackscan
 5. aws ecs execute-command --cluster blackscan --task <task_id_from_above> --container blackscan --interactive --command "nmap -sC domain.com"
 
-Pentesting Module
 
-To install a module
+Install module
 
-- Run on ECS task ``` blackscan nmap ``` to install nmap module
+- Run on ECS task ``` blackscan module nmap ``` to install nmap module
+
+Using Modules
 
 - nmap (use with caution) ```nmap -sC domain.com```
 - wfuzz (quick and dirty subdomain scanner) - Example ```wfuzz -c -Z -w /security/subdomains.txt --sc 200 https://FUZZ.domain.com```
