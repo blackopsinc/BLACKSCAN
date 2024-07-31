@@ -11,6 +11,10 @@ Please refer to AWS policies https://aws.amazon.com/security/penetration-testing
 
 Pentesting Module
 
+To install a module
+
+- Run on ECS task ``` blackscan nmap ``` to install nmap module
+
 - nmap (use with caution) ```nmap -sC domain.com```
 - wfuzz (quick and dirty subdomain scanner) - Example ```wfuzz -c -Z -w /security/subdomains.txt --sc 200 https://FUZZ.domain.com```
 - trufflehog (useful for passive credential scanning) - Example ```trufflehog git https://github.com/blackopsinc/BLACKSCAN```
