@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2" 
+  region = var.region
 }
 
 resource "aws_ecs_cluster" "blackscan" {
@@ -9,7 +9,7 @@ resource "aws_ecs_cluster" "blackscan" {
 resource "aws_iam_role" "ecs_task_role" {
   name               = "ecs-task-role"
   assume_role_policy = jsonencode({
-    Version = "2024-07-29"
+    Version = "2012-10-17"
     Statement = [
       {
         Effect    = "Allow"
@@ -32,8 +32,8 @@ resource "aws_ecs_task_definition" "blackscan" {
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
 
-  cpu                      = "256"
-  memory                   = "512"
+  cpu                      = "512"
+  memory                   = "1024"
 
   execution_role_arn       = aws_iam_role.ecs_task_role.arn
   task_role_arn            = aws_iam_role.ecs_task_role.arn
@@ -41,11 +41,11 @@ resource "aws_ecs_task_definition" "blackscan" {
   container_definitions = jsonencode([
     {
       name      = "blackscan"
-      image     = "blackopsinc/pentest:latest"
-      cpu       = 256
-      memory    = 512
+      image     = "blackopsinc/blackscan:latest"
+      cpu       = 512
+      memory    = 1024
       essential = true
-      command = ["/bin/bash", "-c", "systemctl enable amazon-ssm-agent && tail -f /dev/null"]
+      command = ["/bin/bash", "-c", "./docker-entrypoint.sh"]
     }
   ])
 }
@@ -53,7 +53,7 @@ resource "aws_ecs_task_definition" "blackscan" {
 resource "aws_security_group" "ecs_security_group" {
   name        = "blackscan-security-group"
   description = "Security group for blackscan"
-  vpc_id      =  var.vpc_id
+  vpc_id      =  var.vpcid
 
   egress {
     from_port   = 0
