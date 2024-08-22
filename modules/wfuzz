@@ -3,3 +3,5 @@
 apt-get update && apt-get -y upgrade && apt-get -y install git wfuzz
 mkdir /security
 curl -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-110000.txt' > /security/subdomains.txt
+curl -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/SQLi/quick-SQLi.txt' > /security/sql.txt
+curl -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt' > /security/xss.txt
