@@ -1,1 +1,3 @@
+#!/bin/sh
+
 docker exec -ti blackscan-node-1 msfconsole -q -x "use auxiliary/scanner/ssl/ssl_version; set RHOST localhost; exploit; exit"
