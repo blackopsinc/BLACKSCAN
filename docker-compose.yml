@@ -1,0 +1,11 @@
+services:
+  node:
+    image: blackopsinc/blackscan:latest
+    hostname: blackscan
+    entrypoint: /docker-entrypoint.sh
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 1
