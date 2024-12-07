@@ -2,6 +2,7 @@
 
 Docker to run blackscan locally or in coder
 
+1. Modify docker-compose.yml ```blackscan_domain=localhost``` set the target domain here
 1. Start blackscan ```docker-compose up -d```
 2. Install module ```docker exec -ti blackscan-node-1 blackscan module metasploit```
 3. Run playbook ```cd playbooks; ./msf_ssl_scanner```
