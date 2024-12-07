@@ -2,6 +2,6 @@
 
 apt-get update && apt-get -y upgrade && apt-get -y install git wfuzz
 mkdir /data/wfuzz
-curl -s -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-110000.txt' > /data/wfuzz/subdomains.txt
-curl -s -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/SQLi/quick-SQLi.txt' > /data/wfuzz/sql.txt
-curl -s -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt' > /data/wfuzz/xss.txt
+curl -s -H 'Cache-Control: no-cache, no-store' -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/DNS/subdomains-top1million-110000.txt' > /data/wfuzz/subdomains.txt
+curl -s -H 'Cache-Control: no-cache, no-store' -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/SQLi/quick-SQLi.txt' > /data/wfuzz/sql.txt
+curl -s -H 'Cache-Control: no-cache, no-store' -k 'https://raw.githubusercontent.com/danielmiessler/SecLists/master/Fuzzing/XSS/human-friendly/XSS-BruteLogic.txt' > /data/wfuzz/xss.txt
