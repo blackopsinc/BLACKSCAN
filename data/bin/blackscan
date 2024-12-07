@@ -3,7 +3,7 @@
 # Function to install BLACKSCAN
 install_blackscan() {
     echo "Installing BLACKSCAN"
-    curl -H 'Cache-Control: no-cache' -k 'https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/main/install.sh' | sh
+    curl -s -H 'Cache-Control: no-cache' -k 'https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/main/install.sh' | sh
 }
 
 # Function to install a BLACKSCAN module
@@ -16,11 +16,11 @@ install_module() {
 
     echo "Installing BLACKSCAN - $module_name Module"
     # Try the primary URL
-    curl -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/main/modules/$module_name" | sh
+    curl -s -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/main/modules/$module_name" | sh
     if [ $? -ne 0 ]; then
         echo "Primary URL failed. Attempting fallback URL..."
         # Try the fallback URL
-        curl -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/refs/heads/main/modules/$module_name" | sh
+        curl -s -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/refs/heads/main/modules/$module_name" | sh
         if [ $? -ne 0 ]; then
             echo "Error: Failed to install module $module_name from both primary and fallback URLs."
             exit 1
@@ -38,11 +38,11 @@ call_playbook() {
 
     echo "Executing playbook: $playbook_name"
     # Try the primary URL
-    curl -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/main/playbooks/$playbook_name" | sh
+    curl -s -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/main/playbooks/$playbook_name" | sh
     if [ $? -ne 0 ]; then
         echo "Primary URL failed. Attempting fallback URL..."
         # Try the fallback URL
-        curl -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/refs/heads/main/playbooks/$playbook_name" | sh
+        curl -s -H 'Cache-Control: no-cache' -k "https://raw.githubusercontent.com/blackopsinc/BLACKSCAN/refs/heads/main/playbooks/$playbook_name" | sh
         if [ $? -ne 0 ]; then
             echo "Error: Failed to execute playbook $playbook_name from both primary and fallback URLs."
             exit 1
