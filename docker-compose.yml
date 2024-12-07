@@ -6,6 +6,8 @@ services:
     volumes:
       - ./data:/data
     restart: unless-stopped
+    environment:
+      - blackscan_domain=localhost
     deploy:
       mode: replicated
       replicas: 1
