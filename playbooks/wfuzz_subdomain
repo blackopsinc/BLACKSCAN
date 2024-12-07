@@ -1,0 +1,1 @@
+wfuzz -c -Z -w /data/wfuzz/subdomains.txt --sc 200 https://FUZZ.$blackscan_domain
