@@ -5,6 +5,8 @@ services:
     entrypoint: /docker-entrypoint.sh
     volumes:
       - ./data:/data
+      - ./playbooks:/playbooks
+      - ./modules:/modules
     restart: unless-stopped
     environment:
       - blackscan_domain=localhost
